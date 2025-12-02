@@ -1,1 +1,2 @@
-# AOC2022
+# AOC
+# https://adventofcode.com/
