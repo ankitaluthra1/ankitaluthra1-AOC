@@ -18,7 +18,46 @@ public class Day1 {
     this.inputs = inputs;
   }
 
-  private int firstSolution() {
+  public int secondSolution() {
+    int result = 0;
+    int counter = 50;
+
+    for (String i : inputs) {
+      boolean isRight;
+      isRight = i.charAt(0) == 'R';
+      int moves = Integer.parseInt(i.substring(1));
+      int additionalMoves = 0;
+      if (moves > 100) {
+        additionalMoves = additionalMoves + (moves / 100);
+      }
+      moves = moves % 100;
+      if (isRight) {
+        counter = counter + moves;
+        if (counter > 99) {
+          if (counter != 100) {
+            additionalMoves++;
+          }
+          counter = counter - 100;
+        }
+      } else {
+        boolean startsFrom0 = counter == 0;
+        counter = counter - moves;
+        if (counter < 0) {
+          if (!startsFrom0) {
+            additionalMoves++;
+          }
+          counter = 100 - Math.abs(counter);
+        }
+      }
+      if (counter == 0) {
+        additionalMoves++;
+      }
+      result = result + additionalMoves;
+    }
+    return result;
+  }
+
+  public int firstSolution() {
     int result = 0;
     int counter = 50;
 
@@ -43,14 +82,5 @@ public class Day1 {
       }
     }
     return result;
-  }
-
-  public static void main(String[] args) throws IOException {
-
-
-    List<String> inputs = new FileReader().readFile("/year2025/day1.txt");
-    Day1 day1 = new Day1(inputs);
-    System.out.println(day1.firstSolution());
-
   }
 }
