@@ -1,4 +1,6 @@
-import InputParser.FileReader;
+package ankita.year2022;
+
+import ankita.InputParser.FileReader;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,7 +11,7 @@ class Day8Test {
     @Test
     public void shouldGivenOutputForFirstPuzzle() throws IOException {
        FileReader fileReader = new FileReader();
-       List<String> inputList = fileReader.readFile("day8.txt");
+       List<String> inputList = fileReader.readFile("/year2022/day8.txt");
         Day8 day8 = new Day8(inputList);
        int output = day8.solveFirstPuzzle();
         System.out.println(output);
@@ -18,7 +20,7 @@ class Day8Test {
     @Test
     public void shouldGivenOutputForSecondPuzzle() throws IOException {
         FileReader fileReader = new FileReader();
-        List<String> inputList = fileReader.readFile("day8.txt");
+        List<String> inputList = fileReader.readFile("ankita/year2022/day8.txt");
         Day8 day8 = new Day8(inputList);
 
         int output2 = day8.solveSecondPuzzle();

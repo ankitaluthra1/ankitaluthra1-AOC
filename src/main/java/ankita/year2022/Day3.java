@@ -1,3 +1,5 @@
+package ankita.year2022;
+
 import java.util.*;
 
 public class Day3 {
